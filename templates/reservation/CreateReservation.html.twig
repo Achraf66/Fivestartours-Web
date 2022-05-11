@@ -1,0 +1,65 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block body %}
+
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding: 30px;">
+
+        <div class="card">
+            <br class="card-body">
+                <h5 class="card-title">Add Reservation</h5>
+
+                <!-- General Form Elements -->
+                {{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
+
+
+
+
+
+                        <label for="inputDate" class="col-sm-6 col-form-label">check in : </label>
+                        <div class="col-sm-15">
+                            {{ form_widget(f.checkin,{'attr':{'class':'form-control'}}) }}
+                            {{ form_errors(f.checkin,{'attr':{'class':'text-danger'}}) }}
+                        </div>
+
+
+
+                    <label for="inputDate" class="col-sm-5 col-form-label">check out : </label>
+                    <div class="col-sm-15">
+                        {{ form_widget(f.checkout,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(f.checkout,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+                    <label for="inputText" class="col-sm-5 col-form-label">endroit :</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(f.endroit,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(f.endroit,{'attr':{'class':'text-danger'}}) }}
+                    </div>
+
+
+                    <label for="inputText" class="col-sm-5 col-form-label">nom hotel :</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(f.nomhotel,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(f.nomhotel,{'attr':{'class':'text-danger'}}) }}
+                    </div>
+
+
+                    <label for="inputDate" class="col-sm-8 col-form-label">date reservation :</label>
+                    <div class="col-sm-14">
+                        {{ form_widget(f.datereservation,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(f.datereservation,{'attr':{'class':'text-danger'}}) }}
+                    </div>
+            <br/>
+                <div class="col-sm-10" >
+
+                    {{ form_widget(f.Submit,{'attr':{'class':'btn btn-primary'}}) }}
+
+                </div>
+
+               {{ form_end(f) }}
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

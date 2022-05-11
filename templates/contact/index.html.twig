@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Contact{% endblock %}
+
+{% block body %}
+
+<div style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding: 30px;">
+    <div class="col-xl-6">
+        <div class="card p-6">
+    <br class="card-body">
+            {% for message in app.flashes('message') %}
+
+            <br action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row gy-5">
+                </div>
+
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    </div>
+            </br>
+                    <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                        <button  type="submit">Send Message</button>
+                    </div>
+
+                </div>
+
+        </div>
+
+    </div>
+<div class="example-wrapper">
+
+
+</div>
+{% endfor %}
+    <div class="col-lg-6">
+        <div class="info-box card">
+
+            <h3>Contact us </h3>
+            <p>Five.startours@gmail.com<br>contact@gmail.com</p>
+        </div>
+    </div>
+</form>
+    {{ form(contactForm) }}
+{% endblock %}

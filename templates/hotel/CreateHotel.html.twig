@@ -1,0 +1,41 @@
+
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Ajouter un Hotel {% endblock %}
+
+{% block body %}
+
+    <center>
+        <h1 class=> Ajouter un hotel   </h1>
+    </center>
+
+    <center>
+        <div class="example-wrapper">
+            {{ form_start(a,{attr:{novalidate:'novalidate'}}) }}
+            <table>
+                <tr>
+                    <td>{{ form_label(a.nom,"Nom de l'hotel :")}} </td>
+                    <td>{{ form_widget(a.nom) }} {{ form_errors(a.nom) }}</td>
+
+                </tr>
+
+                <tr>
+                    <td>{{ form_label(a.pays,"Pays")}} </td>
+                    <td>{{ form_widget(a.pays) }} {{ form_errors(a.pays) }}</td>
+                </tr>
+
+            </table>
+
+
+
+            {{ form_end(a) }}
+
+
+
+        </div>
+    </center>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'Front/template.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<center>
+    <h1 class="titreadmin"> Vols Disponibles  </h1>
+</center>
+
+<div class="example-wrapper">
+    <center>
+        <table border="1" class="jointure">
+
+            {#  <th class="jointure" >Nom de Airline</th>
+    <th class="jointure">Id de vol </th>
+    <th class="jointure">Nom de vol</th>
+            #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {%for b in best%}
+    {#  <tr class="jointure">
+        <td class="jointure">{{b.nom}} </td>
+        <td class="jointure"> {{b.id}} </td>
+        <td class="jointure">{{b.nomvol}}</td>
+    </tr>#}
+
+
+                <div class="container">
+                    <div class="card">
+                        <div class="box">
+                            <div class="content">
+                                <h2>{{b.nbrplace}} </h2>
+                                <h3>Airline: {{b.nomairline}}</h3>
+                                <h3>Vol: {{b.nom}}</h3>
+                                <h4>Depart:{{ b.Datedepart|date('Y-m-d')}}</h4>
+                                <h4>Arrive:{{ b.Datearrive|date('Y-m-d')}} </h4>
+            <p>        <br>   Heure depart   :{{ b.heuredepart|date('H:i:s')}}
+                <br>   Heure arrive :{{ b.heurearrive|date('H:i:s')}}
+                <br>      Destination:  {{ b.destination}}
+                                 </p>
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+            {% endfor %}
+
+
+                </div>
+        </table>
+    </center>
+</div>
+{% endblock %}
+
+

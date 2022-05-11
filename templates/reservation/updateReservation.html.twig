@@ -1,0 +1,65 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block body %}
+
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding: 30px;">
+    {% for message in app.flashes ('info') %}
+        <div class="alert alert.success"
+        {{ message }}
+        </div>
+    {% endfor %}
+        <div class="card">
+            <br class="card-body">
+            <h5 class="card-title">Update Reservation</h5>
+
+            <!-- General Form Elements -->
+            {{ form_start(f) }}
+
+
+
+
+
+            <label for="inputDate" class="col-sm-4 col-form-label">check in : </label>
+            <div class="col-sm-15">
+                {{ form_widget(f.checkin,{'attr':{'class':'form-control'}}) }}
+            </div>
+
+
+
+            <label for="inputDate" class="col-sm-5 col-form-label">check out : </label>
+            <div class="col-sm-15">
+                {{ form_widget(f.checkout,{'attr':{'class':'form-control'}}) }}
+
+            </div>
+
+            <label for="inputText" class="col-sm-5 col-form-label">endroit :</label>
+            <div class="col-sm-10">
+                {{ form_widget(f.endroit,{'attr':{'class':'form-control'}}) }}
+            </div>
+
+
+            <label for="inputText" class="col-sm-5 col-form-label">nom hotel :</label>
+            <div class="col-sm-10">
+                {{ form_widget(f.nomhotel,{'attr':{'class':'form-control'}}) }}
+            </div>
+
+
+            <label for="inputDate" class="col-sm-8 col-form-label">date reservation :</label>
+            <div class="col-sm-14">
+                {{ form_widget(f.datereservation,{'attr':{'class':'form-control'}}) }}
+            </div>
+            <br/>
+            <div class="col-sm-10" >
+
+                {{ form_widget(f.Submit,{'attr':{'class':'btn btn-primary'}}) }}
+
+            </div>
+
+            {{ form_end(f) }}
+
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}

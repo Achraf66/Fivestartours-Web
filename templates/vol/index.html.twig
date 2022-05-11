@@ -1,0 +1,93 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}Liste des Vols{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <center>
+    <h1 class="titreadmin"> Liste des Vols</h1>
+    </center>
+
+
+
+
+
+
+    <div>
+
+        <table border=2px class="e">
+
+
+            <th class="s" >Nom vol</th>
+            <th class="s">Date de depart</th>
+            <th class="s">Date d'arrivé </th>
+            <th class="s">Destination</th>
+            <th class="s">Nombre de place</th>
+            <th class="s">Heure de depart</th>
+            <th class="s">Heure d'arrive</th>
+
+          {# <th class="prize-comp">Nom Airline</th>#}
+            <th class="s"></th>
+            <th class="s"></th>
+
+
+
+            {%for v in vols%}
+                <tr class="f">
+
+                    <td class="s" >{{v.nom}}</td>
+                    <td  class="s">{{v.datedepart|date('Y-m-d')}} </td>
+                    <td  class="s">{{v.datearrive|date('Y-m-d')}} </td>
+                    <td class="s">{{v.destination}}</td>
+                    <td class="s">{{v.nbrplace}}</td>
+                    <td class="s">{{v.heuredepart|date('H:i:s')}}</td>
+                    <td class="s">{{v.heurearrive|date('H:i:s')}}</td>
+
+            {#  <td class="prize-comp">{{v.nomairline}}</td> #}
+
+                    <td class="del">
+                        <a href="{{ path('supp_vol',{'id':v.id}) }}"> Supprimer</a>
+                    </td>
+                    <td class="modifier">
+                        <a href="{{ path('editvol',{'id':v.id}) }}"> Modifier</a>
+                    </td>
+
+
+
+                </tr>
+            {% endfor %}
+
+            <center>
+                    <form class="right"  method="POST">
+                    Donner le nom du vol
+                    <input type="text" name="nom">
+                    <input type="submit" value="recherche">
+
+
+
+
+
+                </form>
+                <a class="button-1"
+                   href="{{ path('imprimer') }}"> Imprimer
+                </a>
+            </center>
+
+            </form>
+
+
+
+
+        </table>
+
+
+
+
+    </div>
+
+
+
+{% endblock %}

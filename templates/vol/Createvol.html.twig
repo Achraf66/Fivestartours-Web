@@ -1,0 +1,80 @@
+{% extends 'Back/base.html.twig' %}
+
+
+
+{% block title %} Ajouter un vol {% endblock %}
+
+{% block body %}
+    <center>
+        <h1 class=> Ajouter un vol  </h1>
+    </center>
+    <center>
+{{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
+<table>
+    <tr>
+        <td>{{ form_label(f.Datedepart,"Date de depart")}} </td>
+        <td>{{ form_widget(f.Datedepart) }} {{ form_errors(f.Datedepart) }}</td>
+
+    </tr>
+
+    <tr>
+        <td>{{ form_label(f.Datearrive,"Date d'arrive")}} </td>
+        <td>{{ form_widget(f.Datearrive) }} {{ form_errors(f.Datearrive) }}</td>
+    </tr>
+
+
+    <tr>
+        <td>{{ form_label(f.destination,"Destination")}} </td>
+        <td>{{ form_widget(f.destination) }} {{ form_errors(f.destination) }}</td>
+    </tr>
+
+
+    <tr>
+        <td>{{ form_label(f.nbrplace,"Nombre de place ")}} </td>
+        <td>{{ form_widget(f.nbrplace) }} {{ form_errors(f.nbrplace) }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ form_label(f.heuredepart,"Heure de depart")}} </td>
+        <td>{{ form_widget(f.heuredepart) }} {{ form_errors(f.heuredepart) }}</td>
+    </tr>
+
+
+    <tr>
+        <td>{{ form_label(f.heurearrive,"Heure d'arrive")}} </td>
+        <td>{{ form_widget(f.heurearrive) }} {{ form_errors(f.heurearrive) }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ form_label(f.nom,"Nom de Vol")}} </td>
+        <td>{{ form_widget(f.nom) }} {{ form_errors(f.nom) }}</td>
+    </tr>
+{#
+    <tr>
+        <td>{{ form_label(f.nomairline,"Nom de airline")}} </td>
+        <td>{{ form_widget(f.nomairline) }} {{ form_errors(f.nomairline) }}</td>
+    </tr>
+#}
+
+
+
+    <tr>
+
+    </tr>
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+{{ form_end(f) }}
+    </center>
+{% endblock %}

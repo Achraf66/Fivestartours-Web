@@ -1,0 +1,79 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block body %}
+
+{% for message in app.flashes ('info') %}
+<div class="alert alert.success"
+    {{ message }}
+    </div>
+{% endfor %}
+
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px">
+
+        <div class="col-lg-10">
+
+            <div class="card">
+                <a class="card-body">
+
+                 <a href="{{ path('addReservation') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+
+                    <h5 class="card-title">Liste des reservations</h5>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th class="prize-comp">checkin</th>
+                            <th class="prize-comp">checkout </th>
+                            <th class="prize-comp">endroit</th>
+                            <th class="prize-comp">Nom hotel</th>
+                            <th class="prize-comp">date reservation</th>
+
+                            <th class="prize-comp">Delete</th>
+                            <th class="prize-comp">Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {%for reservation in reservations%}
+                            <tr class="prize-comp">
+
+
+                                <td class="prize-comp"> {{reservation.checkin|date('Y-m-d')}}</td>
+                                <td class="prize-comp"> {{reservation.checkout|date('Y-m-d')}}</td>
+                                <td class="prize-comp"> {{reservation.endroit}}</td>
+                                <td class="prize-comp">  {{reservation.nomhotel}}</td>
+                                <td class="prize-comp">  {{reservation.datereservation|date('Y-m-d')}}</td>
+
+                                <td class="del">
+                                    <a class="btn btn-success"    href="{{ path('supp_reservation',{'id':reservation.id}) }}"> Supprimer</a>
+                                </td>
+                                <td class="modifier">
+                                    <a class="btn btn-danger" href="{{ path('editReservation',{'id':reservation.id}) }}"> Modifier</a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <!-- End small tables -->
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+    <table border="1" class="prize-comp">
+
+
+
+
+    </table>
+     </div>
+
+{% endblock %}
